@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/errors"
+	"github.com/enixdark/featurehub-go-sdk/pkg/errors"
 )
 
 // FeatureState defines model for FeatureState.

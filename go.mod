@@ -1,4 +1,4 @@
-module github.com/featurehub-io/featurehub-go-sdk
+module github.com/enixdark/featurehub-go-sdk
 
 go 1.14
 

@@ -1,7 +1,7 @@
 package analytics
 
 import (
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/models"
+	"github.com/enixdark/featurehub-go-sdk/pkg/models"
 	"github.com/sirupsen/logrus"
 )
 

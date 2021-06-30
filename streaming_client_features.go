@@ -1,8 +1,8 @@
 package client
 
 import (
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/errors"
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/models"
+	"github.com/enixdark/featurehub-go-sdk/pkg/errors"
+	"github.com/enixdark/featurehub-go-sdk/pkg/models"
 )
 
 // GetFeature searches for a feature by key:

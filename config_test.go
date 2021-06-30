@@ -3,8 +3,8 @@ package client
 import (
 	"testing"
 
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/mocks"
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/models"
+	"github.com/enixdark/featurehub-go-sdk/pkg/mocks"
+	"github.com/enixdark/featurehub-go-sdk/pkg/models"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )

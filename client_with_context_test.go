@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/donovanhide/eventsource"
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/models"
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/strategies"
+	"github.com/enixdark/featurehub-go-sdk/pkg/models"
+	"github.com/enixdark/featurehub-go-sdk/pkg/strategies"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )

@@ -3,7 +3,7 @@ package client
 import (
 	"testing"
 
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/interfaces"
+	"github.com/enixdark/featurehub-go-sdk/pkg/interfaces"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )

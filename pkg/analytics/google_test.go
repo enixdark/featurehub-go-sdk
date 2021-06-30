@@ -3,7 +3,7 @@ package analytics
 import (
 	"testing"
 
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/models"
+	"github.com/enixdark/featurehub-go-sdk/pkg/models"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 )

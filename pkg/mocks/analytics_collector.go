@@ -4,8 +4,8 @@ package mocks
 import (
 	"sync"
 
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/interfaces"
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/models"
+	"github.com/enixdark/featurehub-go-sdk/pkg/interfaces"
+	"github.com/enixdark/featurehub-go-sdk/pkg/models"
 )
 
 type FakeAnalyticsCollector struct {

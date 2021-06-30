@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/featurehub-io/featurehub-go-sdk/pkg/strategies"
+	"github.com/enixdark/featurehub-go-sdk/pkg/strategies"
 	"github.com/spaolacci/murmur3"
 )
 
