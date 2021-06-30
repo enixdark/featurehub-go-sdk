@@ -5,4 +5,5 @@ const (
 	FieldNameDevice   = "device"
 	FieldNamePlatform = "platform"
 	FieldNameVersion  = "version"
+	FieldUserKey      = "userkey"
 )

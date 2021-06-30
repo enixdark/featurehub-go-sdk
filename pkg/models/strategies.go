@@ -38,19 +38,27 @@ func (ss Strategies) Calculate(clientContext *Context) interface{} {
 
 	// Pre-calculate our hashKey:
 	hashKey, _ := clientContext.UniqueKey()
+	flag := true
 
 	// Go through the available strategies:
 	for _, strategy := range ss {
 		logger.Tracef("Checking strategy (%s)", strategy.ID)
+		// skip when off flag
+		if strategy.Value.(bool) == false {
+			flag = false;
+			continue
+		}
 
 		// Check if we match any percentage-based rule:
 		if !strategy.proceedWithPercentage(hashKey) {
+			flag = false;
 			logger.Tracef("Failed strategy (%s) percentage - trying next strategy", strategy.ID)
 			continue
 		}
 
 		// Check if we match the attribute-based rules:
 		if !strategy.proceedWithAttributes(clientContext) {
+			flag = false;
 			logger.Tracef("Failed strategy (%s) attributes - trying next strategy", strategy.ID)
 			continue
 		}
@@ -61,7 +69,7 @@ func (ss Strategies) Calculate(clientContext *Context) interface{} {
 	}
 
 	// Otherwise just return nil:
-	return nil
+	return flag
 }
 
 // proceedWithPercentage contains the logic to match percentage-based rules on a user-key / session-key hash:
@@ -103,6 +111,18 @@ func (s Strategy) proceedWithAttributes(clientContext *Context) bool {
 
 		// Handle each different client-context attribute:
 		switch sa.FieldName {
+
+		case strategies.FieldUserKey:
+			matched, err := sa.matchType(sa.Values, string(clientContext.Userkey))
+			if err != nil {
+				logger.WithError(err).Error("Unable to match type")
+			}
+			fmt.Printf("\n TTTTT %s \n", matched)
+			if len(clientContext.Userkey) > 0 && matched {
+				continue
+			}
+			logger.Tracef("Didn't match attribute strategy (%s:%s = %v) for country: %v\n", sa.ID, sa.FieldName, sa.Values, clientContext.Country)
+			return false
 
 		// Match by country name:
 		case strategies.FieldNameCountry:
