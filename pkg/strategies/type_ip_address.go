@@ -18,11 +18,13 @@ func IPAddress(conditional string, options []interface{}, value interface{}) (bo
 	}
 
 	// The value should be a valid IP address:
-	ip, _, err := net.ParseCIDR(assertedValue)
-	if err != nil {
-		return false, err
+	if net.ParseIP(assertedValue) == nil {
+		ip, _, err := net.ParseCIDR(assertedValue)
+		if err != nil {
+			return false, err
+		}
+		assertedValue = ip.String()
 	}
-	assertedValue = ip.String()
 
 	// Type assert all of the options:
 	var assertedOptions []string
