@@ -161,11 +161,16 @@ func (s Strategy) proceedWithAttributes(clientContext *Context) bool {
 			// Look up the field by name in the clientContext.Custom attribute:
 			customContextValue, ok := clientContext.Custom[sa.FieldName]
 			if ok {
-				matched, err := sa.matchType(sa.Values, customContextValue)
-				if err != nil {
-					logger.WithError(err).Error("Unable to match type")
+				var bypass bool
+				for _, v := range customContextValue.(map[string]interface{}) {
+					matched, _ := sa.matchType(sa.Values, v)
+
+					if matched {
+						bypass = true
+					}
 				}
-				if matched {
+
+				if bypass {
 					continue
 				}
 				logger.Tracef("Didn't match custom strategy (%s:%s = %v) for version: %v\n", sa.ID, sa.FieldName, sa.Values, clientContext.Version)
